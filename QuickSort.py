@@ -1,12 +1,6 @@
 import random
 
-def partition(movies, first=None, last=None):
-    if first is None:
-        first = 0
-
-    if last is None:
-        last = len(movies) - 1
-
+def partition(movies, first, last):
     index = first
     pivot = last
     for i in range(first, last):
@@ -25,10 +19,16 @@ def partition(movies, first=None, last=None):
 
 
 def quick_sort(movies, first, last):
+
     if first < last:
         pi = partition(movies, first, last)
         quick_sort(movies, first, (pi - 1))
         quick_sort(movies, (pi + 1), last)
+
+
+def sort(list):
+    random.shuffle(list)
+    quick_sort(list, 0, len(list) - 1)
 
 
 def print_with_numbers(movies):

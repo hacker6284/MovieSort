@@ -29,7 +29,7 @@ def extract_list(url):
 def names_list(url):
     """Returns just movie names"""
 
-    return map(lambda film: film[0], extract_list(url))
+    return list(map(lambda film: film[0], extract_list(url)))
 
 
 if __name__ == "__main__":
