@@ -1,3 +1,4 @@
+import requests
 import urllib.request
 from bs4 import BeautifulSoup
 
@@ -6,6 +7,9 @@ def extract_list(url):
     """Takes the URL of a Letterboxd List and converts it to a list of movies
     in python form. List contains tuples of name followed by poster url.
     """
+
+    r = requests.get(url)
+    url = r.url
 
     # Switch to detail view if not already
     if not url.endswith("/detail/"):
