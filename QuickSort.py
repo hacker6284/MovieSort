@@ -5,9 +5,9 @@ def partition(movies, first, last):
     pivot = last
     for i in range(first, last):
         answer = 0
-        while answer != 1 and answer != 2:
+        while answer != "1" and answer != "2":
             answer = input(f"(1) {movies[i]} or (2) {movies[pivot]}? ")
-        if answer == 2:
+        if answer == "2":
             temp = movies[index]
             movies[index] = movies[i]
             movies[i] = temp
@@ -42,5 +42,5 @@ print()
 
 quick_sort(movies, 0, len(movies) - 1)
 
-for movie in movies:
-    print(movie)
+for index, movie in enumerate(reversed(movies)):
+    print(f"{index + 1}: {movie}")
