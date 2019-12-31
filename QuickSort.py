@@ -30,23 +30,27 @@ def quick_sort(movies, first, last):
         quick_sort(movies, first, (pi - 1))
         quick_sort(movies, (pi + 1), last)
 
-movie_list = open("movies.txt", "r").readlines()
 
-movies = []
+def print_with_numbers(movies):
+    for index, movie in enumerate(reversed(movies)):
+        print(f"{index + 1}: {movie}")
 
-for movie in movie_list:
-    movies.append(movie.strip())
+if __name__ == "__main__":
+    movie_list = open("movies.txt", "r").readlines()
 
-print(f"Length of movies list is {len(movies)}")
+    movies = []
 
-random.shuffle(movies)
+    for movie in movie_list:
+        movies.append(movie.strip())
 
-for movie in movies:
-    print(movie)
+    print(f"Length of movies list is {len(movies)}")
 
-print()
+    random.shuffle(movies)
 
-quick_sort(movies, 0, len(movies) - 1)
+    for movie in movies:
+        print(movie)
 
-for index, movie in enumerate(reversed(movies)):
-    print(f"{index + 1}: {movie}")
+    print()
+
+    quick_sort(movies, 0, len(movies) - 1)
+    print_with_numbers(movies)
