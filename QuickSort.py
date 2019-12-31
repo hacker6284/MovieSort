@@ -1,6 +1,12 @@
 import random
 
-def partition(movies, first, last):
+def partition(movies, first=None, last=None):
+    if first is None:
+        first = 0
+
+    if last is None:
+        last = len(movies) - 1
+
     index = first
     pivot = last
     for i in range(first, last):
